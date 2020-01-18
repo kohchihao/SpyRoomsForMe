@@ -12,7 +12,6 @@ const getBookingDataFor = (room, callback) => {
         let parsed = [];
         const $ = cheerio.load(data);
         $('table tbody tr td').each(function() {
-          console.log($(this).text())
           parsed.push($(this).text());
         });
 
