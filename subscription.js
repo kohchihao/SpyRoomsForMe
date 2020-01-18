@@ -13,33 +13,69 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
-function subscribeTo(room, user_id) {
+function subscribeTo(room, user_id, callback) {
   db.collection(room)
-    .add({
-      user_id: user_id,
+    .doc(user_id.toString())
+    .set({
+      user_id: user_id
     })
-    .then(function(docRef) {
-      console.log('Document written with ID: ', docRef.id);
+    .then(docRef => {
+      db.collection('room')
+        .doc(room)
+        .get()
+        .then(doc => {
+          if (doc.exists) {
+            console.log('query update...', doc.data());
+            db.collection('room')
+              .doc(room)
+              .update({
+                count: doc.data().count + 1
+              });
+          } else {
+            console.log('no doc exists.');
+            db.collection('room')
+              .doc(room)
+              .set({
+                count: 1
+              });
+          }
+          callback();
+        });
     })
     .catch(function(error) {
       console.error('Error adding document: ', error);
     });
-
-  db.collection(`room`).doc(room).get().then((doc) => {
-    
-    if (doc.exists) {
-      console.log('query update...',doc.data())
-      db.collection('room').doc(room).update({
-        count: doc.data().count + 1
-      });
-    } else {
-      console.log('no doc exists.')
-      db.collection('room').doc(room).update({
-        count: 1
-      });
-    }
-  });
 }
 
+function unsubscribeTo(room, user_id, callback) {
+  db.collection(room)
+    .doc(user_id.toString())
+    .delete()
+    .then(() => {
+      console.log('Document successfully deleted!');
+      db.collection('room')
+        .doc(room)
+        .get()
+        .then(doc => {
+          if (doc.exists) {
+            console.log('query update...', doc.data());
+            if (doc.data().count > 0) {
+              db.collection('room')
+                .doc(room)
+                .update({
+                  count: doc.data().count - 1
+                })
+                .then(() => {
+                  callback();
+                });
+            }
+            callback();
+          }
+        });
+    })
+    .catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+}
 
-module.exports = { subscribeTo }
+module.exports = { subscribeTo, unsubscribeTo };
