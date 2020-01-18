@@ -49,10 +49,11 @@ const getFormattedBookingData = (room, callback) => {
 }
 
 bot.command('/getdr1', ctx => {
-  getFormattedBookingData('DR1', formattedString => {
-    console.log("format", formattedString)
-    ctx.reply(formattedString, option);
-  });
+  // getFormattedBookingData('DR1', formattedString => {
+  //   console.log("format", formattedString)
+  //   ctx.reply(formattedString, option);
+  // });
+  ctx.reply("WOWOWOW")
 });
 
 // bot.command('/getdr2', ctx => {
