@@ -44,16 +44,15 @@ const getFormattedBookingData = (room, callback) => {
     for (let i = 0; i < timings.length; i++) {
       formattedString += `\n${timings[i]} ~ ${reasons[i]}`;
     }
-    callback(formattedString);
+    return callback(formattedString);
   });
 }
 
 bot.command('/getdr1', ctx => {
-  // getFormattedBookingData('DR1', formattedString => {
-  //   console.log("format", formattedString)
-  //   ctx.reply(formattedString, option);
-  // });
-  ctx.reply("WOWOWOW")
+  getFormattedBookingData('DR1', formattedString => {
+    console.log("format", formattedString)
+    ctx.reply(formattedString, option);
+  });
 });
 
 // bot.command('/getdr2', ctx => {
