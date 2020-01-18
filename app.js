@@ -1,5 +1,7 @@
 require('dotenv').config()
 const Telegraf = require('Telegraf')
+const subscription = require('./subscription')
+
 
 const room = {
   DR1: "DR1 (COM1-B-14B)",
@@ -26,4 +28,6 @@ const room = {
   VideoConf: "Video Conferencing Room (COM1-02-13)"
 }
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.TELEGRAM_API_KEY)
+
+
