@@ -37,7 +37,7 @@ var option = {
   parse_mode: 'html'
 };
 
-function getFormattedBookingData(room, callback) {
+const getFormattedBookingData = (room, callback) => {
   scraper.getBookingDataFor(room, (error, data) => {
     let [timings, reasons] = data;
     let formattedString = `Booking info for ${room.bold()}:`;
