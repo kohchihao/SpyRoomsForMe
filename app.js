@@ -52,6 +52,7 @@ const getFormattedBookingData = (room, callback) => {
 bot.command('/getdr1', ctx => {
   getFormattedBookingData('DR1', formattedString => {
     console.log("format", formattedString)
+    console.log(ctx)
     ctx.reply(formattedString, option);
   });
 });
