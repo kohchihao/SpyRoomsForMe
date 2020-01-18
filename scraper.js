@@ -5,14 +5,14 @@ const getBookingDataFor = (room, callback) => {
 
   if (room) {
     request.get(
-      `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}`,
+      `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}&thedate=2020/01/20`,
       (error, response, data) => {
         let timings = [];
         let reasons = [];
         let parsed = [];
         const $ = cheerio.load(data);
-        $('table tbody tr td').each(function() {
-          parsed.push($(this).text());
+        $('table tbody tr td').each((i, elem) => {
+          parsed.push(elem.children[0].data);
         });
 
         for (let i = 0; i < parsed.length; i++) {
