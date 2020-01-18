@@ -5,7 +5,7 @@ const getBookingDataFor = (room, callback) => {
 
   if (room) {
     request.get(
-      `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}&thedate=2020/01/20`,
+      `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}`,
       (error, response, data) => {
         let timings = [];
         let reasons = [];
