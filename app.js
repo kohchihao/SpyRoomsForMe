@@ -26,4 +26,161 @@ const room = {
   VideoConf: "Video Conferencing Room (COM1-02-13)"
 }
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.TELEGRAM_API_KEY)
+const scraper = require('./scraper')
+
+var option = {
+  "parse_mode": "html",
+};
+
+function getFormattedBookingData(room, callback) {
+  scraper.getBookingDataFor(room, (error, data) => {
+    let [timings, reasons] = data 
+    let formattedString = `Booking info for ${room.bold()}:`
+    for (let i = 0; i < timings.length; i++) {
+      formattedString += `\n${timings[i]} ~ ${reasons[i]}`;
+    
+    }
+    callback(formattedString)
+  });
+}
+
+bot.command('/getDR1', (ctx) => {
+  getFormattedBookingData("DR1", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR2', (ctx) => {
+  getFormattedBookingData("DR2", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR3', (ctx) => {
+  getFormattedBookingData("DR3", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR4', (ctx) => {
+  getFormattedBookingData("DR4", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR5', (ctx) => {
+  getFormattedBookingData("DR5", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR6', (ctx) => {
+  getFormattedBookingData("DR6", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR7', (ctx) => {
+  getFormattedBookingData("DR7", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR8', (ctx) => {
+  getFormattedBookingData("DR8", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR9', (ctx) => {
+  getFormattedBookingData("DR9", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR10', (ctx) => {
+  getFormattedBookingData("DR10", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR11', (ctx) => {
+  getFormattedBookingData("DR11", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getDR12', (ctx) => {
+  getFormattedBookingData("DR12", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getExecutiveClassRm', (ctx) => {
+  getFormattedBookingData("ExecutiveClassRm", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR1', (ctx) => {
+  getFormattedBookingData("MR1", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR2', (ctx) => {
+  getFormattedBookingData("MR2", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR3', (ctx) => {
+  getFormattedBookingData("MR3", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR4', (ctx) => {
+  getFormattedBookingData("MR4", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR5', (ctx) => {
+  getFormattedBookingData("MR5", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR6', (ctx) => {
+  getFormattedBookingData("MR6", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR7', (ctx) => {
+  getFormattedBookingData("MR7", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR8', (ctx) => {
+  getFormattedBookingData("MR8", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getMR9', (ctx) => {
+  getFormattedBookingData("MR9", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.command('/getVideoConf', (ctx) => {
+  getFormattedBookingData("VideoConf", (formattedString) => {
+    ctx.reply(formattedString, option)
+  })
+})
+
+bot.startPolling()

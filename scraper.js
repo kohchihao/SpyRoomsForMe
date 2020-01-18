@@ -2,16 +2,17 @@ const request = require('request');
 const cheerio = require('cheerio');
 
 function getBookingDataFor(room, callback) {
+
   if (room) {
     request.get(
-      `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}m&thedate=2020/01/20`,
+      `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}&thedate=2020/01/20`,
       (error, response, data) => {
         let timings = [];
         let reasons = [];
         let parsed = [];
         const $ = cheerio.load(data);
         $('table tbody tr td').each(function() {
-          parsed.push($(text).text());
+          parsed.push($(this).text());
         });
 
         for (let i = 0; i < parsed.length; i++) {
