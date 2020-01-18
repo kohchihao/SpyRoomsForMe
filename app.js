@@ -37,21 +37,22 @@ var option = {
   parse_mode: 'html'
 };
 
-const getFormattedBookingData = (room, callback) => {
+const getFormattedBookingData = (room, ctx, callback) => {
   scraper.getBookingDataFor(room, (error, data) => {
     let [timings, reasons] = data;
     let formattedString = `Booking info for ${room.bold()}:`;
     for (let i = 0; i < timings.length; i++) {
       formattedString += `\n${timings[i]} ~ ${reasons[i]}`;
     }
+    ctx.reply(formattedString, option);
     return callback(formattedString);
   });
 }
 
 bot.command('/getdr1', ctx => {
-  getFormattedBookingData('ExecutiveClassRm', formattedString => {
+  getFormattedBookingData('ExecutiveClassRm', ctx, formattedString => {
     console.log("format", formattedString)
-    ctx.reply(formattedString, option);
+    //ctx.reply(formattedString, option);
   });
 });
 
