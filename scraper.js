@@ -2,6 +2,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 
 function getBookingDataFor(room, callback) {
+
   if (room) {
     request.get(
       `https://mysoc.nus.edu.sg/~calendar/getBooking.cgi?room=${room}&thedate=2020/01/20`,
