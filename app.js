@@ -44,6 +44,7 @@ const getFormattedBookingData = (room, callback) => {
     for (let i = 0; i < timings.length; i++) {
       formattedString += `\n${timings[i]} ~ ${reasons[i]}`;
     }
+    console.log(formattedString)
     callback(formattedString);
   });
 }
