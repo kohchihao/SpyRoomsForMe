@@ -1,7 +1,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 
-function getBookingDataFor(room, callback) {
+const getBookingDataFor = (room, callback) => {
 
   if (room) {
     request.get(

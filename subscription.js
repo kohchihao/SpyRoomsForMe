@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
-function subscribeTo(room, user_id, callback) {
+const subscribeTo = (room, user_id, callback) => {
   db.collection(room)
     .doc(user_id.toString())
     .set({
@@ -47,7 +47,7 @@ function subscribeTo(room, user_id, callback) {
     });
 }
 
-function unsubscribeTo(room, user_id, callback) {
+const unsubscribeTo = (room, user_id, callback) => {
   db.collection(room)
     .doc(user_id.toString())
     .delete()
