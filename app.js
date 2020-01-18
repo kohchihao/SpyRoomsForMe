@@ -30,10 +30,10 @@ const room = {
 const bot = new Telegraf(process.env.TELEGRAM_API_KEY);
 const scraper = require('./scraper');
 
-// bot.telegram.setWebhook('https://spyroomsforme.herokuapp.com/secret-path')
-// bot.startWebhook('/secret-path', null, process.env.PORT || 5000)
-bot.telegram.setWebhook('https://407e71e3.ngrok.io/secret-path')
+bot.telegram.setWebhook('https://spyroomsforme.herokuapp.com/secret-path')
 bot.startWebhook('/secret-path', null, process.env.PORT || 5000)
+//bot.telegram.setWebhook('https://407e71e3.ngrok.io/secret-path')
+//bot.startWebhook('/secret-path', null, process.env.PORT || 5000)
 
 var option = {
   parse_mode: 'html'
