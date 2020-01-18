@@ -1,5 +1,5 @@
 require('dotenv').config();
-const Telegraf = require('Telegraf');
+const Telegraf = require('telegraf');
 const subscription = require('./subscription');
 
 const room = {
