@@ -45,7 +45,15 @@ const subscribeTo = (room, user_id, callback) => {
     .catch(function(error) {
       console.error('Error adding document: ', error);
     });
-}
+};
+
+const stateOfCurrentRoom = (room, state) => {
+  db.collection('room')
+    .doc(room)
+    .update({
+      state: state
+    });
+};
 
 const unsubscribeTo = (room, user_id, callback) => {
   db.collection(room)
@@ -76,6 +84,6 @@ const unsubscribeTo = (room, user_id, callback) => {
     .catch(function(error) {
       console.error('Error removing document: ', error);
     });
-}
+};
 
-module.exports = { subscribeTo, unsubscribeTo };
+module.exports = { subscribeTo, unsubscribeTo, stateOfCurrentRoom};

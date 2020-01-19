@@ -33,6 +33,7 @@ const bot = new Telegraf(process.env.TELEGRAM_API_KEY, config);
 const scraper = require('./scraper');
 
 bot.telegram.setWebhook('https://spyroomsforme.herokuapp.com/secret-path')
+//bot.telegram.setWebhook('https://2ab933df.ngrok.io/secret-path')
 bot.startWebhook('/secret-path', null, process.env.PORT || 5000)
 
 var option = {
@@ -56,6 +57,7 @@ bot.command('/getdr1', (ctx) => {
   getFormattedBookingData('DR1', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR1', formattedString)
   });
 });
 
@@ -64,6 +66,7 @@ bot.command('/getdr2', ctx => {
   getFormattedBookingData('DR2', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR2', formattedString)
   });
 });
 
@@ -71,6 +74,7 @@ bot.command('/getdr3', ctx => {
   getFormattedBookingData('DR3', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR3', formattedString)
   });
 });
 
@@ -78,6 +82,7 @@ bot.command('/getdr4', ctx => {
   getFormattedBookingData('DR4', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR4', formattedString)
   });
 });
 
@@ -85,6 +90,7 @@ bot.command('/getdr5', ctx => {
   getFormattedBookingData('DR5', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR5', formattedString)
   });
 });
 
@@ -92,6 +98,7 @@ bot.command('/getdr6', ctx => {
   getFormattedBookingData('DR6', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR6', formattedString)
   });
 });
 
@@ -99,6 +106,7 @@ bot.command('/getdr7', ctx => {
   getFormattedBookingData('DR7', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR7', formattedString)
   });
 });
 
@@ -106,6 +114,7 @@ bot.command('/getdr8', ctx => {
   getFormattedBookingData('DR8', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR8', formattedString)
   });
 });
 
@@ -113,6 +122,7 @@ bot.command('/getdr9', ctx => {
   getFormattedBookingData('DR9', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR9', formattedString)
   });
 });
 
@@ -120,6 +130,7 @@ bot.command('/getdr10', ctx => {
   getFormattedBookingData('DR10', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR10', formattedString)
   });
 });
 
@@ -127,6 +138,7 @@ bot.command('/getdr11', ctx => {
   getFormattedBookingData('DR11', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR11', formattedString)
   });
 });
 
@@ -134,6 +146,7 @@ bot.command('/getdr12', ctx => {
   getFormattedBookingData('DR12', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('DR12', formattedString)
   });
 });
 
@@ -141,6 +154,7 @@ bot.command('/getexecutiveclassrm', ctx => {
   getFormattedBookingData('ExecutiveClassRm', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('ExecutiveClassRm', formattedString)
   });
 });
 
@@ -148,6 +162,7 @@ bot.command('/getmr1', ctx => {
   getFormattedBookingData('MR1', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR1', formattedString)
   });
 });
 
@@ -155,6 +170,7 @@ bot.command('/getmr2', ctx => {
   getFormattedBookingData('MR2', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR2', formattedString)
   });
 });
 
@@ -162,6 +178,7 @@ bot.command('/getmr3', ctx => {
   getFormattedBookingData('MR3', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR3', formattedString)
   });
 });
 
@@ -169,6 +186,7 @@ bot.command('/getmr4', ctx => {
   getFormattedBookingData('MR4', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR4', formattedString)
   });
 });
 
@@ -176,6 +194,7 @@ bot.command('/getmr5', ctx => {
   getFormattedBookingData('MR5', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR5', formattedString)
   });
 });
 
@@ -183,6 +202,7 @@ bot.command('/getmr6', ctx => {
   getFormattedBookingData('MR6', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR6', formattedString)
   });
 });
 
@@ -190,6 +210,7 @@ bot.command('/getmr7', ctx => {
   getFormattedBookingData('MR7', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR7', formattedString)
   });
 });
 
@@ -197,6 +218,7 @@ bot.command('/getmr8', ctx => {
   getFormattedBookingData('MR8', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR8', formattedString)
   });
 });
 
@@ -204,6 +226,7 @@ bot.command('/getmr9', ctx => {
   getFormattedBookingData('MR9', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('MR9', formattedString)
   });
 });
 
@@ -211,6 +234,7 @@ bot.command('/getvideoconf', ctx => {
   getFormattedBookingData('VideoConf', formattedString => {
     bot.telegram.sendChatAction(ctx.message.chat.id, "typing");
     ctx.reply(formattedString, option);
+    subscription.stateOfCurrentRoom('VideoConf', formattedString)
   });
 });
 
